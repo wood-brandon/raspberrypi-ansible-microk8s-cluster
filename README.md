@@ -5,12 +5,12 @@ This is my custom script for setting up a Raspberry Pi cluster, and running Kube
  - Set up one master node and N worker nodes, and automatically create a working cluster
 
 ## Requirements
- - At least two Raspberry Pis (minimum one control node, one worker node)
+ - At least two Raspberry Pi 4s
  - Pis should run Ubuntu Server
  - SSH access with publickey authentication setup from the same computer running the playbook
 
 ## Setup
-Create your inventory file `inventory/inventory.yml`. This should follow the format of `inventory/inventory_template`
+Create your inventory file `inventory/inventory.yml`. This should follow the format of `inventory/inventory_template`. Only one master node is supported.
 
 ```bash
 touch inventory/inventory.yml
