@@ -1,0 +1,11 @@
+---
+
+  - name: Install microk8s
+    community.general.snap:
+      name: microk8s
+      classic: true
+    register: microk8
+
+  - name: Reboot after changing cmdline.txt settings
+    when: microk8 is changed
+    ansible.builtin.reboot:

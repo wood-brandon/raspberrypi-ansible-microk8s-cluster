@@ -1,0 +1,13 @@
+---
+masters:
+  hosts:
+    10.0.0.1:
+
+workers:
+  hosts:
+    10.0.0.[2:10]:
+
+cluster:
+  children:
+    workers:
+    masters:

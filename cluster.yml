@@ -1,0 +1,18 @@
+---
+- hosts: cluster
+  gather_facts: yes
+  become: yes
+  roles:
+    - role: rpi
+    - role: microk8s/install
+
+- hosts: masters
+  become: yes
+  roles:
+    - role: microk8s/master
+    
+- hosts: workers
+  become: yes
+  roles:
+    - role: microk8s/worker
+    
