@@ -1,0 +1,13 @@
+---
+
+  - name: Install k3s
+    shell: 'curl -sfL https://get.k3s.io | INSTALL_K3S_EXEC="--disable=helm-controller" sh'
+
+  - name: Wait for k3s to be running
+    service:
+      name: k3s.service 
+      state: started
+    register: k3service
+    until: k3service.status.ActiveState == "active"
+    retries: 12
+    delay: 5
