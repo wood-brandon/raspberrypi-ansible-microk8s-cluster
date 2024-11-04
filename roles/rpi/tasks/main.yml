@@ -1,5 +1,10 @@
 ---
 
+  - name: apt update & install vim
+    ansible.builtin.apt:
+      name: vim
+      update_cache: yes
+
   - name: Enable cgroup in /boot/firmware/cmdline.txt
     lineinfile:
       path: /boot/firmware/cmdline.txt

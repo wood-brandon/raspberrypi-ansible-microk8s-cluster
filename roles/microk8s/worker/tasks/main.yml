@@ -1,9 +1,0 @@
----
-  - name: Wait for microk8s ready status
-    command: "microk8s status --wait-ready"
-  - debug: msg="{{ ansible_hostname }}"
-
-  - name: Join using master node token command
-    command: "{{ hostvars[groups['masters'][0]]['_master_token'] }} --worker"
-    when: "ansible_hostname not in hostvars[groups['masters'][0]]['_current_nodes']"
-    register: join_result
